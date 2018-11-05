@@ -18,4 +18,9 @@ export class HomePage {
     this.filteredMovies = this.filmService.getFilteredMovies();
   }
 
+  goToDetail(movie) {
+    this.navCtrl.push('detail', {
+      movie: movie
+    });
+  }
 }

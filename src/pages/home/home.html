@@ -17,13 +17,21 @@
 
   </ion-slides>
 
-  <ion-card *ngFor="let movie of movies | async">
-    <img [src]="movie.Poster"/>
-    <ion-card-content>
-      <ion-card-title>
-        {{movie.Title}}
-      </ion-card-title>
-    </ion-card-content>
-  </ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col col-6 *ngFor="let movie of movies | async">
+      <ion-card
+        (click)="goToDetail(movie)">
+        <img [src]="movie.Poster"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{movie.Title}}
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 
 </ion-content>

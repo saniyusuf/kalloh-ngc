@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from "@angular/common/http";
 import { FilmProvider } from '../providers/film/film';
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FilmProvider } from '../providers/film/film';
     TabsPage
   ],
   providers: [
+    SocialSharing,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
