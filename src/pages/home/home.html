@@ -5,6 +5,18 @@
 </ion-header>
 
 <ion-content padding>
+
+  <ion-slides pager>
+
+    <ion-slide
+      *ngFor="let featured of filteredMovies | async"
+      [style.background-size]="'contain'"
+      [style.background-repeat]="'no-repeat'"
+      [style.background-image]="'url(' + featured?.FeaturedImage + ')'">
+    </ion-slide>
+
+  </ion-slides>
+
   <ion-card *ngFor="let movie of movies | async">
     <img [src]="movie.Poster"/>
     <ion-card-content>

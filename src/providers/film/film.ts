@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 
 const API = "https://api.myjson.com/bins/102p72";
@@ -19,6 +20,17 @@ export class FilmProvider {
 
   getMovies(): Observable<Movie[]>{
     return this.http.get<Movie[]>(API);
+  }
+
+  getFilteredMovies(): Observable<Movie[]>{
+    return this.getMovies()
+      .pipe(
+        map((movies)=> {
+          return movies.filter((movie)=> {
+            return movie.Featured;
+          });
+        })
+      );
   }
 
 }

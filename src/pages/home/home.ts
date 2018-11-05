@@ -9,11 +9,13 @@ import {Observable} from "rxjs";
 })
 export class HomePage {
   movies: Observable<Movie[]>;
+  filteredMovies: Observable<Movie[]>;
 
   constructor(
     private filmService: FilmProvider,
     public navCtrl: NavController) {
     this.movies = this.filmService.getMovies();
+    this.filteredMovies = this.filmService.getFilteredMovies();
   }
 
 }
